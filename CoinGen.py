@@ -7,7 +7,7 @@ def main():
     inp = input('Enter save data file name with .xml extension: ')
     
     file = md.parse(inp)
-    file.getElementsByTagName( "coins" )[ 0 ].childNodes[ 0 ].nodeValue = "6969" 
+    file.getElementsByTagName( "coins" )[ 0 ].childNodes[ 0 ].nodeValue = "6969"    #Change this number to change lunar coin amount
 
     with open( inp, "w" ) as fs: 
   
