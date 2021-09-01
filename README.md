@@ -1,4 +1,4 @@
-# ROR2-Simple-Lunar-Coin-Gen
+# ROR2-Simple-Lunar-Coin-Editor
 Just adjusts your lunar coins
 
 Its a script that gets your save data file via input. 
