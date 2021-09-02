@@ -11,11 +11,6 @@ def main():
     count = 0
     drives = ['C:\\','E:\\','F:\\','D:\\']
 
-    curdir = os.getcwd()
-    print(curdir)
-
-    pattern = "Steam"
-
     for rootPath in drives:
         print("Now searching in: ", rootPath)
         if rootPath == drives[0]:
