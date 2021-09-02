@@ -9,7 +9,7 @@ def main():
     fullpath = []
     profiles = []
     count = 0
-    drives = ['C:\\','E:\\','F:\\']
+    drives = ['C:\\','E:\\','F:\\','D:\\']
 
     curdir = os.getcwd()
     print(curdir)
