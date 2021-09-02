@@ -1,9 +1,7 @@
 #Just learning how to modify xml files with a py script
 import os
-from os import walk
 import xml.dom.minidom as md
-import xml.etree.ElementTree as ET
-
+import glob
 
 def main():
 
@@ -11,22 +9,26 @@ def main():
     fullpath = []
     profiles = []
     count = 0
+    drives = ['C:\\','E:\\','F:\\']
 
-    #find dir
-    path_parent = 'C:/Program Files (x86)/Steam/userdata/'
-    itr = iter(os.walk(path_parent))
-    root, dirs, files = next(itr)
+    curdir = os.getcwd()
+    print(curdir)
 
-    for next_root, next_dirs, next_files in itr:  #This just gets opens the file that contains your steam profile number since its unique
-        root = next_root
-        break
+    pattern = "Steam"
 
-    path = root + '/632360/remote/UserProfiles/'
+    for rootPath in drives:
+        print("Now searching in: ", rootPath)
+        if rootPath == drives[0]:
+            for filePath in glob.iglob(rootPath + '\\Program Files (x86)\\Steam\\userdata\\**\\632360\\remote\\UserProfiles\\'):
+                print(filePath)
+        for filePath in glob.iglob(rootPath + 'Steam\\userdata\\**\\632360\\remote\\UserProfiles\\'):
+            print(filePath)
 
-    for filename in os.listdir(path):
-        if not filename.endswith('.xml'): continue
-        file = md.parse(path + filename)
-        fullpath.append(path + filename)
+
+    for saveData in os.listdir(filePath):
+        if not saveData.endswith('.xml'): continue
+        file = md.parse(filePath + saveData)
+        fullpath.append(filePath + saveData)
         profiles.append(file.getElementsByTagName('name')[ 0 ].childNodes[ 0 ].nodeValue)
     
     #Input time :-)
