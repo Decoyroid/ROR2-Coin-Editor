@@ -1,14 +1,12 @@
 #Just learning how to modify xml files with a py script
-import os
+import os, glob
 import xml.dom.minidom as md
-import glob
 
 def main():
 
     #Declarations
     fullpath = []
     profiles = []
-    count = 0
     drives = ['C:\\','E:\\','F:\\','D:\\']
 
     for rootPath in drives:
